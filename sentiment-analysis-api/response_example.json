@@ -1,0 +1,9 @@
+{
+    "probabilities": {
+        "negative": 0.00025397917488589883,
+        "neutral": 0.0015819837572053075,
+        "positive": 0.9981639981269836
+    },
+    "sentiment": "positive",
+    "confidence": 0.9981639981269836
+}
