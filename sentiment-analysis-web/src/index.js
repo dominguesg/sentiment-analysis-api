@@ -19,11 +19,18 @@ var xhr = new XMLHttpRequest(); //invoke a new instance of the XMLHttpRequest
 xhr.onload = success; // call success function if request is successful
 xhr.onerror = error;  // call error function if request failed
 
+export async function getServerSideProps({ req, res, resolvedUrl }) {
+    console.log(resolvedUrl)
+
+   // Remaining code
+}
 
 function process_input() {
     var user_input = document.getElementById('user_input').value;
     // open a POST request to the server.
-    xhr.open('POST', "http://127.0.0.1:8000/predict");
+    const url = document.createElement('a');
+    url.setAttribute('href', window.location.href);
+    xhr.open('POST', "http://"+url.hostname+":8000/predict");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify({"text": user_input})); // send the request to the server.
 }

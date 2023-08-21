@@ -1,12 +1,18 @@
-version: "3.3"
+version: "3.8"
 services:
   api:
     build: ./sentiment-analysis-api/.
     ports:
       - "8000:8000"
+    environment:
+      - MODEL_ID=1IR4WoUycBQ_GTGZFHz41hgO-FetNiEea
+    volumes:
+      - api_data:/api
   web:
     build: ./sentiment-analysis-web/.
     ports:
       - "3000:3000"
     links:
       - "api:web"
+volumes:
+  api_data:
